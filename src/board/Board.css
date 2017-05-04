@@ -1,0 +1,29 @@
+
+.topPart {
+  justify-content: center;
+  width: 100%;
+  height: rem(100px);
+  position:fixed;
+  overflow-y:hidden;
+  overflow-x:hidden;
+  border-left: solid;
+  border-bottom: solid;
+  border-color: darkgrey;
+  align-items: center;
+}
+
+.topContent {
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  margin-top: rem(35px);
+  margin-left: rem(30px);
+}
+
+.topContentButton {
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  margin-top: rem(35px);
+  margin-left: rem(70px);
+}

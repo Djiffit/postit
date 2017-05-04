@@ -1,0 +1,39 @@
+@import "../styles/colors.css";
+@import "../styles/typography.css";
+
+.component {
+  flex:auto;
+  flex-direction: row;
+  width: 100%;
+  background-color: var(--silver);
+}
+
+.rightBar {
+  float: left;
+  position:absolute;
+  left: 30%;
+  width: 100%;
+}
+
+.leftBar {
+  background-color: var(--silver);
+  top: rem(100px);
+  bottom:0;
+  width: 30%;
+  position:fixed;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  border-right: solid;
+  border-top: solid;
+  border-color: darkgrey;
+}
+
+.notes {
+  background-color: white;
+  top: rem(100px);
+  bottom:0;
+  width: 100%;
+  position:fixed;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}

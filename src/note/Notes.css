@@ -1,0 +1,78 @@
+@import "../styles/colors.css";
+@import "../styles/typography.css";
+
+.component {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.addBtn {
+  margin-left: rem(130px);
+  display:block;
+  margin-top: rem(20px);
+  margin-bottom: rem(20px);
+  width:60%;
+}
+
+.done {
+  color: green;
+  text-decoration: line-through;
+  display: flex;
+  background-color: var(--silver);
+  width: 100%;
+  float: left;
+  font-size: rem(30px);
+  word-wrap: break-word;
+  user-select: none;
+  justify-content: center;
+  margin-top: 5px;
+  text-overflow: scroll;
+  cursor: grab;
+}
+
+.notdone {
+  word-wrap: break-word;
+  color: red;
+  width: 100%;
+  display: flex;
+  background-color: var(--silver);
+  float: left;
+  font-size: rem(30px);
+  justify-content: center;
+  user-select: none;
+  margin-top: 5px;
+  text-overflow: ellipsis;
+  cursor: grab;
+}
+
+.overflow {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  margin-top: rem(13px);
+}
+
+.row {
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 68%;
+  display: flex;
+}
+
+.pullRight {
+  float:right;
+}
+
+.inlineBtn {
+  display: flex;
+  margin-left: rem(15px);
+  margin-top: rem(5px);
+  margin-right: rem(15px);
+  flex-direction: row;
+  justify-content: center;
+  width: rem(100px);
+}
