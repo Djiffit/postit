@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 
 import {fetchBoards, createBoard, selectBoard} from './actions'
 import {getBoards} from './selectors'
+import CreateForm from '../form/CreateForm'
 import css from './Boards.css'
 
 import type {RootState} from '$src/root/types'
@@ -20,32 +21,28 @@ type Props = {
 export class Boards extends Component {
   props: Props
 
-  state = {newBoard: ''}
-
   componentWillMount() {
     this.props.fetchBoards()
   }
 
-  handleChange = (event) => {
-    this.setState({newBoard: event.target.value})
+  submitBoard (data: Object) {
+    this.props.createBoard(data.name)
   }
 
   render() {
     const {createBoard, selectBoard} = this.props
     return (
       <div>
-        <input placeholder='Name' type='text' onChange={this.handleChange} className={css.inputField}></input>
-        <button className={css.createButton}
-          onClick={() => createBoard(this.state.newBoard)}>
-          Create Board
-        </button>
-        {
-          this.props.boards.map((board, index) =>
-          <button className={css.boardButton} onClick={() => selectBoard({index, boardId: board.id})}>{board.name}</button>)
-        }
+      <div className={css.inputField}>
+        <CreateForm submitForm={this.submitBoard.bind(this)} onSubmit={this.submitBoard.bind(this)}/>
       </div>
-    )
-  }
+      {
+        this.props.boards.map((board, index) =>
+        <button className={css.boardButton} onClick={() => selectBoard({index, boardId: board.id})}>{board.name}</button>)
+      }
+    </div>
+  )
+}
 }
 
 const mapStateToProps = (state: RootState) => ({

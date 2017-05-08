@@ -3,6 +3,7 @@
 import {takeLatest} from 'redux-saga'
 import {fork, put} from 'redux-saga/effects'
 import {receiveBoards, selectBoard, handleDeleted, handleCreated, handleEdited, openBoard} from './actions'
+import {reset} from 'redux-form'
 
 function* fetchBoards(): Generator<> {
   const response = yield fetch(`${API_URL}/boards`)
@@ -41,11 +42,11 @@ function* createBoard(payload): Generator<> {
   const created = yield response.json()
 
   yield put(handleCreated(created))
+  yield put(reset('create'))
 }
 
 function* showBoard(payload): Generator<> {
   const {boardId, index} = payload.payload
-  console.log('show', payload)
   const response = yield fetch(`http://localhost:1337/boards/${boardId}`)
   const board = yield response.json()
   board.index = index
@@ -54,7 +55,6 @@ function* showBoard(payload): Generator<> {
 }
 
 function* editBoard(payload): Generator<> {
-  console.log(payload)
   const {name, boardId} = payload.payload
   const response = yield fetch(`http://localhost:1337/boards/${boardId}`, {
     method: 'PUT',

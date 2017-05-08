@@ -14,6 +14,9 @@ export const receiveBoards =
 export const editBoard =
   createAction('EDIT_BOARD')
 
+  export const reset =
+    createAction('RESET')
+
 export const createBoard =
   createAction('CREATE_BOARD')
 

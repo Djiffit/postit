@@ -1,0 +1,51 @@
+@import "../styles/colors.css";
+@import "../styles/typography.css";
+@import "../note/Notes.css";
+
+.inputField {
+  margin-top: rem(18px);
+  margin-left: rem(130px);
+  margin-bottom: rem(130px);
+  position: fixed;
+  height:rem(35px);
+  width: calc(70% - rem(150px));
+  justify-content: center;
+}
+
+.warning {
+  margin-top: rem(120px);
+  margin-left: rem(130px);
+  position: fixed;
+  height:rem(35px);
+  width: rem(1000px);
+  justify-content: center;
+}
+
+.createButton {
+  composes: inlineBtn;
+  margin-top: rem(10px);
+  color: green;
+  position: fixed;
+  overflow-x:auto;
+}
+
+.formWrapper {
+  position: fixed;
+  height: rem(80px);
+  width: 100%;
+  background-color: var(--silver);
+}
+
+.warning {
+  color: red;
+  font-weight: bold;
+  height:rem(20px);
+  position: fixed;
+  width: 30%;
+  top: rem(35px);
+  font-size: rem(20px);
+  float:left;
+  list-style-type:none;
+  white-space:nowrap;
+  overflow-x:auto;
+}

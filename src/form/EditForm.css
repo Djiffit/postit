@@ -1,0 +1,68 @@
+@import "../styles/colors.css";
+@import "../styles/typography.css";
+@import "../note/Notes.css";
+
+.header {
+  width: 100%;
+  flex:auto;
+  border: solid;
+  border-width: thin;
+  border-color: grey;
+  text-align: center;
+  margin-top: rem(100px);
+}
+
+.htext {
+  margin-bottom: rem(30px);
+}
+
+.inputField {
+  width: 80%;
+  flex:auto;
+  margin-left: 10%;
+  height: rem(30px);
+  margin-top: rem(30px);
+}
+
+.createButton {
+  flex: auto;
+  width: 50%;
+  flex:auto;
+  margin-left: 25%;
+  margin-top: rem(40px);
+  color: green;
+  height:rem(30px);
+  font-size: rem(25px);
+  list-style-type:none;
+  white-space:nowrap;
+  overflow-x:auto;
+}
+
+.cancelButton {
+  flex: auto;
+  width: 50%;
+  flex:auto;
+  margin-left: 25%;
+  margin-top: rem(15px);
+  color: black;
+  height:rem(30px);
+  font-size: rem(25px);
+  list-style-type:none;
+  white-space:nowrap;
+  overflow-x:auto;
+}
+
+.warning {
+  color: red;
+  font-weight: bold;
+  height:rem(20px);
+  margin-left: 10%;
+  width:80%;
+  text-align: center;
+  top: rem(35px);
+  font-size: rem(20px);
+  float:left;
+  list-style-type:none;
+  white-space:nowrap;
+  overflow-x:auto;
+}

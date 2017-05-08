@@ -1,0 +1,47 @@
+@import "../styles/colors.css";
+@import "../styles/typography.css";
+@import "../note/Notes.css";
+
+.boardButton {
+  width: 100%;
+  font-size: rem(25px);
+  float:left;
+  list-style-type:none;
+  white-space:nowrap;
+  overflow-x:auto;
+}
+
+.inputField {
+  position:fixed;
+  height:rem(35px);
+  top: rem(0px);
+  width: 30%;
+  justify-content: center;
+}
+
+.createButton {
+  color: green;
+  height:rem(40px);
+  position: fixed;
+  width: 30%;
+  top: rem(63px);
+  font-size: rem(30px);
+  float:left;
+  list-style-type:none;
+  white-space:nowrap;
+  overflow-x:auto;
+}
+
+.warning {
+  color: red;
+  font-weight: bold;
+  height:rem(20px);
+  position: fixed;
+  width: 30%;
+  top: rem(35px);
+  font-size: rem(20px);
+  float:left;
+  list-style-type:none;
+  white-space:nowrap;
+  overflow-x:auto;
+}
