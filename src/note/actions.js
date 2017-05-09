@@ -28,3 +28,12 @@ export const handleEdited =
 
 export const handleCreated =
   createAction('HANDLE_CREATED_NOTE')
+
+export const showEditPopup =
+  createAction('SHOW_EDIT_POPUP')
+
+export const hideEditPopup =
+  createAction('HIDE_EDIT_POPUP')
+
+export const changeNoteFilter =
+  createAction('NOTE_FILTER_CHANGE')

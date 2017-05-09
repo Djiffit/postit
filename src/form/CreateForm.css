@@ -21,16 +21,19 @@
 
 .createButton {
   color: green;
-  height:rem(40px);
+  height:rem(35px);
+  margin-bottom: rem(2.5px);
   position: fixed;
-  width: 30%;
+  width: 25%;
+  margin-left: 2.5%;
   top: rem(63px);
-  font-size: rem(30px);
+  font-size: rem(25px);
   float:left;
   list-style-type:none;
   white-space:nowrap;
   overflow-x:auto;
 }
+
 
 .warning {
   color: red;

@@ -7,8 +7,9 @@
   overflow-y:hidden;
   overflow-x:hidden;
   border-left: solid;
+  border-left-color: black;
   border-bottom: solid;
-  border-color: darkgrey;
+  border-bottom-color: darkgrey;
   align-items: center;
 }
 

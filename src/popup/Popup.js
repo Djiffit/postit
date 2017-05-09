@@ -10,17 +10,6 @@ type Props = {
   editAction: Function,
 }
 
-const backdropStyle = {
-  position: 'fixed',
-  zIndex: '1',
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  backgroundColor: 'rgba(0,0,0,0.3)',
-  padding: 50,
-}
-
 class Popup extends React.Component {
   props: Props
 
@@ -30,8 +19,8 @@ class Popup extends React.Component {
 
   render() {
     return (
-      <div className={css.backDrop} style={backdropStyle}>
-        <div className={css.formContainer}>
+      <div className={css.backdrop}>
+        <div onBlur={() => console.log('dw')} className={css.formContainer}>
           <EditForm submitForm={this.doEdit.bind(this)} cancelAction={this.props.cancelAction} onSubmit={this.doEdit.bind(this)}/>
         </div>
       </div>

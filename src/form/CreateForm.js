@@ -7,12 +7,10 @@ const minLength3 = minLength(5)
 const maxLength15 = maxLength(15)
 
 class CreateForm extends Component {
-
   render() {
-
     const {handleSubmit, reset, submitForm} = this.props
     return (
-      <form onSubmit={handleSubmit(submitForm.bind(this))}>
+      <form className={css.formContainer} onSubmit={handleSubmit(submitForm.bind(this))}>
         <div>
           <Field className={css.inputField} name="name" type="text"
             component={renderField} label="Board name"

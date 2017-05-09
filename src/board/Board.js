@@ -3,8 +3,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-import {deleteBoard, editBoard} from './actions'
+import {deleteBoard, showBoardEdit, hideBoardEdit, editBoard} from './actions'
 import {getBoard} from './selectors'
+import {changeNoteFilter} from '../note/actions'
+import FilterNotes from '../filters/FilterNotes'
 import css from './Board.css'
 import Popup from '../popup/Popup'
 
@@ -15,37 +17,36 @@ type Props = {
   boardId: number,
   deleteBoard: Function,
   editBoard: Function,
+  showBoardEdit: Function,
+  hideBoardEdit: Function,
+  boardShowing: boolean,
+  changeNoteFilter: Function,
 }
 
 
 export class Board extends Component {
-  state = {isShowing: false}
   props: Props
 
-  cancelAction = () => this.setState({isShowing: false})
+  cancelAction = () => this.props.hideBoardEdit()
 
-  editAction = (data) => {
-    this.props.editBoard({name: data.name, boardId: this.props.boardId})
-    this.setState({isShowing: false})
-  }
+  editAction = (data) => this.props.editBoard({name: data.name, boardId: this.props.boardId})
 
   render() {
-    const popup = this.state.isShowing ? <Popup cancelAction={this.cancelAction.bind(this)}
-      editAction={this.editAction.bind(this)}/> : null
-      const {deleteBoard, editBoard, boardName, boardId} = this.props
-      return (
-        <div>
-          <div className={css.topPart}>
-            <h3 className={css.topContent}>{boardName}</h3>
-            <button onClick={() => this.setState({isShowing: true})} className={css.topContentButton}>Edit</button>
-            <button onClick={() => deleteBoard(boardId)} className={css.topContentButton}>Delete</button>
-          </div>
-          {popup}
+    const {deleteBoard, changeNoteFilter, boardShowing, showBoardEdit, editBoard, boardName, boardId} = this.props
+    const popup = boardShowing ? <Popup cancelAction={this.cancelAction.bind(this)} editAction={this.editAction.bind(this)}/> : <FilterNotes filterChange={changeNoteFilter}/>
+    return (
+      <div>
+        <div className={css.topPart}>
+          <h3 className={css.topContent}>{boardName}</h3>
+          <button onClick={() => showBoardEdit()} className={css.topContentButton}>Edit</button>
+          <button onClick={() => deleteBoard(boardId)} className={css.topContentButton}>Delete</button>
         </div>
-      )
-    }
+        {popup}
+      </div>
+    )
   }
+}
 
-  const mapStateToProps = (state: RootState) => (getBoard(state))
+const mapStateToProps = (state: RootState) => (getBoard(state))
 
-  export default connect(mapStateToProps, {deleteBoard, editBoard})(Board)
+export default connect(mapStateToProps, {deleteBoard, changeNoteFilter, editBoard, showBoardEdit, hideBoardEdit})(Board)

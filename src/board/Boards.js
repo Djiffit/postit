@@ -3,9 +3,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-import {fetchBoards, createBoard, selectBoard} from './actions'
+import {fetchBoards, changeBoardFilter, createBoard, selectBoard} from './actions'
 import {getBoards} from './selectors'
 import CreateForm from '../form/CreateForm'
+import FilterElements from '../filters/FilterElements'
 import css from './Boards.css'
 
 import type {RootState} from '$src/root/types'
@@ -16,6 +17,7 @@ type Props = {
   fetchBoards: Function,
   createBoard: Function,
   selectBoard: Function,
+  changeBoardFilter: Function,
 }
 
 export class Boards extends Component {
@@ -30,23 +32,26 @@ export class Boards extends Component {
   }
 
   render() {
-    const {createBoard, selectBoard} = this.props
+    const {createBoard, selectBoard, changeBoardFilter} = this.props
     return (
       <div>
-      <div className={css.inputField}>
-        <CreateForm submitForm={this.submitBoard.bind(this)} onSubmit={this.submitBoard.bind(this)}/>
+        <div className={css.inputField}>
+          <CreateForm submitForm={this.submitBoard.bind(this)} onSubmit={this.submitBoard.bind(this)}/>
+        </div>
+        <FilterElements filterChange={changeBoardFilter}/>
+        <div className={css.boardList}>
+        {
+          this.props.boards.map((board, index) =>
+          <button key={index} className={css.boardButton} onClick={() => selectBoard({index, boardId: board.id})}>{board.name}</button>)
+        }
       </div>
-      {
-        this.props.boards.map((board, index) =>
-        <button className={css.boardButton} onClick={() => selectBoard({index, boardId: board.id})}>{board.name}</button>)
-      }
-    </div>
-  )
-}
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state: RootState) => ({
   boards: getBoards(state),
 })
 
-export default connect(mapStateToProps, {selectBoard, fetchBoards, createBoard})(Boards)
+export default connect(mapStateToProps, {selectBoard, changeBoardFilter, fetchBoards, createBoard})(Boards)

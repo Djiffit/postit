@@ -2,7 +2,7 @@
 
 import {takeLatest} from 'redux-saga'
 import {fork, put} from 'redux-saga/effects'
-import {handleDeleted, handleCreated, handleEdited} from './actions'
+import {handleDeleted, hideEditPopup, handleCreated, handleEdited} from './actions'
 import {reset} from 'redux-form'
 
 function* deleteNote(payload): Generator<> {
@@ -43,6 +43,7 @@ function* editNote(payload): Generator<> {
   const edited = yield response.json()
 
   yield put(handleEdited(edited))
+  yield put(hideEditPopup())
 }
 
 function* noteDone(payload): Generator<> {

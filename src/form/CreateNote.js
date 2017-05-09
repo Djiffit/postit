@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import {minLength, maxLength, required} from './Validations'
 import css from './CreateNote.css'
 
-const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
+const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
   <div style={{position:'fixed'}}>
     <div>
       <input className={css.inputField} {...input} placeholder={label} type={type}/>
@@ -16,7 +16,7 @@ const maxLength50 = maxLength(50)
 
 class CreateNote extends Component {
   render() {
-    const {handleSubmit, cancelAction, reset, submitForm} = this.props
+    const {handleSubmit, submitForm} = this.props
     return (
       <div className={css.formWrapper}>
         <form onSubmit= {handleSubmit(submitForm.bind(this))}>

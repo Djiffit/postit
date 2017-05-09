@@ -2,7 +2,7 @@
 
 import {takeLatest} from 'redux-saga'
 import {fork, put} from 'redux-saga/effects'
-import {receiveBoards, selectBoard, handleDeleted, handleCreated, handleEdited, openBoard} from './actions'
+import {receiveBoards, selectBoard, hideBoardEdit, handleDeleted, handleCreated, handleEdited, openBoard} from './actions'
 import {reset} from 'redux-form'
 
 function* fetchBoards(): Generator<> {
@@ -67,6 +67,7 @@ function* editBoard(payload): Generator<> {
   const edited = yield response.json()
 
   yield put(handleEdited(edited[0]))
+  yield put(hideBoardEdit())
 }
 
 export default function* (): Generator<> {

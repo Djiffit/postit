@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import css from './CreateForm.css'
 
 export const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
-  <div style={{position:'fixed'}}>
+  <div>
     <div>
       <input className={css.inputField} {...input} placeholder={label} type={type}/>
       {touched && ((error && <span className={css.warning}>{error}</span>) || (warning && <span className={css.warning}>{warning}</span>))}

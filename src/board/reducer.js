@@ -3,7 +3,7 @@
 import {combineReducers} from 'redux'
 import {handleActions} from 'redux-actions'
 
-import noteReducer from '../note/reducer'
+import {noteReducer, showingReducer, noteFilterReducer} from '../note/reducer'
 import type {Reducer} from '../types'
 import type {Board} from './types'
 
@@ -31,8 +31,27 @@ export const activeReducer: Reducer<number> = handleActions ({
   },
 }, 0)
 
+export const editBoardReducer: Reducer<boolean> = handleActions ({
+  SHOW_BOARD_EDIT: (state, {payload}) => {
+    return true
+  },
+  HIDE_BOARD_EDIT: (state, {payload}) => {
+    return false
+  },
+}, false)
+
+export const boardFilterReducer: Reducer<string> = handleActions ({
+  BOARD_FILTER_CHANGE: (state, {payload}) => {
+    return payload
+  }
+}, '')
+
 export default combineReducers({
   boards: boardReducer,
   notes: noteReducer,
   active: activeReducer,
+  showing: showingReducer,
+  boardShowing: editBoardReducer,
+  boardFilter: boardFilterReducer,
+  noteFilter: noteFilterReducer,
 })

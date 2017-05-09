@@ -8,7 +8,7 @@
   margin-bottom: rem(130px);
   position: fixed;
   height:rem(35px);
-  width: calc(70% - rem(150px));
+  width: 32%;
   justify-content: center;
 }
 
@@ -30,9 +30,13 @@
 }
 
 .formWrapper {
+  margin-left: 30%;
   position: fixed;
   height: rem(80px);
   width: 100%;
+  border-bottom:solid;
+  border-width: thin;
+  margin-top: rem(2px);
   background-color: var(--silver);
 }
 

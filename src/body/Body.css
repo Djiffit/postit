@@ -17,15 +17,17 @@
 
 .leftBar {
   background-color: var(--silver);
-  top: rem(100px);
+  top: rem(150px);
   bottom:0;
   width: 30%;
   position:fixed;
   overflow-y:scroll;
   overflow-x:hidden;
-  border-right: solid;
   border-top: solid;
-  border-color: darkgrey;
+  border-top-width: medium;
+  border-top-color: black;
+  border-right: solid;
+  border-right-color: darkgrey;
 }
 
 .notes {

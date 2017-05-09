@@ -1,0 +1,21 @@
+.floatingBox {
+  position:fixed;
+  height:rem(50px);
+  top: rem(103px);
+  width: 31%;
+  z-index: 1;
+  justify-content: center;
+  border-top: solid;
+  border-top-width: thin;
+  border-right-color: black;
+}
+
+.inputField {
+  width: 62%;
+  margin-left: 5%;
+}
+
+.label {
+  margin-left: 2%;
+  color: grey;
+}

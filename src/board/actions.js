@@ -14,7 +14,7 @@ export const receiveBoards =
 export const editBoard =
   createAction('EDIT_BOARD')
 
-  export const reset =
+export const reset =
     createAction('RESET')
 
 export const createBoard =
@@ -34,3 +34,12 @@ export const handleEdited =
 
 export const handleCreated =
   createAction('HANDLE_CREATED_BOARD')
+
+export const changeBoardFilter =
+  createAction('BOARD_FILTER_CHANGE')
+
+export const showBoardEdit =
+  createAction('SHOW_BOARD_EDIT')
+
+export const hideBoardEdit =
+  createAction('HIDE_BOARD_EDIT')
