@@ -26,11 +26,10 @@
   float: left;
   font-size: rem(30px);
   word-wrap: break-word;
-  user-select: none;
   justify-content: center;
   margin-top: 5px;
   text-overflow: scroll;
-  cursor: grab;
+  cursor: move;
 }
 
 .notdone {
@@ -42,10 +41,9 @@
   float: left;
   font-size: rem(30px);
   justify-content: center;
-  user-select: none;
   margin-top: 5px;
   text-overflow: ellipsis;
-  cursor: grab;
+  cursor: move;
 }
 
 .overflow {

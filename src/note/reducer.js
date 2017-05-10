@@ -25,6 +25,9 @@ export const noteReducer: Reducer<Array<Note>> = handleActions({
   OPEN_BOARD: (state, {payload}) => {
     return payload.notes
   },
+  NOTE_BOARD_CHANGE_DONE: (state, {payload}) => {
+    return state.filter((note) => note.id !== payload.id)
+  },
 }, [])
 
 export const showingReducer: Reducer<Object> = handleActions({

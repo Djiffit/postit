@@ -4,7 +4,7 @@ import {minLength, maxLength, required, renderField} from './Validations'
 import css from './CreateForm.css'
 
 const minLength3 = minLength(5)
-const maxLength15 = maxLength(15)
+const maxLength15 = maxLength(30)
 
 class CreateForm extends Component {
   render() {

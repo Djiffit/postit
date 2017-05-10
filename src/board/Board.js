@@ -32,7 +32,7 @@ export class Board extends Component {
   editAction = (data) => this.props.editBoard({name: data.name, boardId: this.props.boardId})
 
   render() {
-    const {deleteBoard, changeNoteFilter, boardShowing, showBoardEdit, editBoard, boardName, boardId} = this.props
+    const {deleteBoard, changeNoteFilter, boardShowing, showBoardEdit, boardName, boardId} = this.props
     const popup = boardShowing ? <Popup cancelAction={this.cancelAction.bind(this)} editAction={this.editAction.bind(this)}/> : <FilterNotes filterChange={changeNoteFilter}/>
     return (
       <div>

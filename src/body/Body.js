@@ -6,9 +6,10 @@ import Boards from '../board/Boards'
 import Notes from '../note/Notes'
 import Board from '../board/Board'
 import css from './Body.css'
+import HTML5Backend from 'react-dnd-html5-backend'
+import {DragDropContext} from 'react-dnd'
 
-export default class Body extends Component {
-
+class Body extends Component {
   render() {
     return (
       <div className={css.component}>
@@ -25,3 +26,5 @@ export default class Body extends Component {
     )
   }
 }
+
+export default DragDropContext(HTML5Backend)(Body)

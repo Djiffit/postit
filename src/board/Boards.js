@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {fetchBoards, changeBoardFilter, createBoard, selectBoard} from './actions'
 import {getBoards} from './selectors'
 import CreateForm from '../form/CreateForm'
+import SingleBoard from './SingleBoard'
 import FilterElements from '../filters/FilterElements'
 import css from './Boards.css'
 
@@ -41,8 +42,7 @@ export class Boards extends Component {
         <FilterElements filterChange={changeBoardFilter}/>
         <div className={css.boardList}>
         {
-          this.props.boards.map((board, index) =>
-          <button key={index} className={css.boardButton} onClick={() => selectBoard({index, boardId: board.id})}>{board.name}</button>)
+          this.props.boards.map((board, index) => <SingleBoard index={index} selectBoard={selectBoard} board={board} />)
         }
       </div>
       </div>

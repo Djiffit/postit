@@ -43,8 +43,8 @@
   width: 50%;
   flex:auto;
   margin-left: 25%;
-  margin-top: rem(15px);
-  color: black;
+  margin-top: rem(40px);
+  color: green;
   height:rem(30px);
   font-size: rem(25px);
   list-style-type:none;

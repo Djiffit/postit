@@ -8,6 +8,12 @@ export const doneNote =
 export const deleteNote =
   createAction('DELETE_NOTE')
 
+export const changeBoard =
+  createAction('NOTE_BOARD_CHANGE')
+
+export const boardChanged =
+  createAction('NOTE_BOARD_CHANGE_DONE')
+
 export const handleDone =
   createAction('HANDLE_DONE')
 

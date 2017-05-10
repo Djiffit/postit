@@ -2,7 +2,7 @@
 @import "../styles/typography.css";
 
 .floatingBox {
-  position:relative;
+  position: fixed;
   height:rem(50px);
   top: rem(103px);
   width: 30%;
@@ -16,20 +16,23 @@
   border-width: thin;
   background-color: var(--silver);
   z-index: 1;
+  overflow-x: hidden;
   justify-content: center;
 }
 
 .inputField {
-  margin-left: rem(130px);
-  margin-bottom: rem(130px);
   position: fixed;
+  margin-left: rem(130px);
+  overflow-x: hidden;
+  margin-bottom: rem(130px);
   height:rem(35px);
-  width: 22%;
+  width: 20%;
   justify-content: center;
 }
 
 .label {
-  position:fixed;
+  position: fixed;
+  overflow-x: hidden;
   margin-left: 2%;
   color: grey;
 }

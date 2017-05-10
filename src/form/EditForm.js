@@ -4,7 +4,7 @@ import {minLength, maxLength, required} from './Validations'
 import css from './EditForm.css'
 
 const minLength3 = minLength(5)
-const maxLength15 = maxLength(15)
+const maxLength15 = maxLength(25)
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div>
@@ -23,7 +23,7 @@ class EditForm extends Component {
   render() {
     const {handleSubmit, reset, submitForm, cancelAction} = this.props
     return (
-      <div>
+      <div className={css.comp}>
         <form onSubmit={handleSubmit(submitForm.bind(this))}>
           <div>
             <Field className={css.inputField} name="name" type="text"

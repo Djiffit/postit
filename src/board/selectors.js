@@ -8,7 +8,7 @@ export const getBoards: Selector<Array<Board>, *> = (state) => {
   return boards
 }
 
-export const getBoard: Selector<Array<Board>, *> = (state) => {
+export const getBoard: Selector<*, *> = (state) => {
   const {active, boards, boardShowing} = state.board
   if (boards === undefined || boards[active] === undefined) return {boardId: '', boardName: 'No board selected!'}
   return {boardId: boards[active].id, boardName: boards[active].name, boardShowing}

@@ -2,7 +2,7 @@
 
 import {takeLatest} from 'redux-saga'
 import {fork, put} from 'redux-saga/effects'
-import {handleDeleted, hideEditPopup, handleCreated, handleEdited} from './actions'
+import {handleDeleted, boardChanged, hideEditPopup, handleCreated, handleEdited} from './actions'
 import {reset} from 'redux-form'
 
 function* deleteNote(payload): Generator<> {
@@ -46,6 +46,21 @@ function* editNote(payload): Generator<> {
   yield put(hideEditPopup())
 }
 
+function* changeBoard(payload): Generator<> {
+  const {boardId, noteId} = payload.payload
+  const response = yield fetch(`http://localhost:1337/notes/${noteId}/moveNote`, {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({boardId: boardId}),
+  })
+  const edited = yield response.json()
+
+  yield put(boardChanged(edited))
+}
+
 function* noteDone(payload): Generator<> {
   const {done, noteId} = payload.payload
   const response = yield fetch(`http://localhost:1337/notes/${noteId}/${done}`, {
@@ -62,6 +77,7 @@ export default function* (): Generator<> {
       yield takeLatest('DELETE_NOTE', deleteNote)
       yield takeLatest('CREATE_NOTE', createNote)
       yield takeLatest('EDIT_NOTE', editNote)
+      yield takeLatest('NOTE_BOARD_CHANGE', changeBoard)
     }),
   ]
 }
